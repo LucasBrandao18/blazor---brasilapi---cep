@@ -1,0 +1,12 @@
+.consulta {
+    max-width: 48rem;
+    overflow-wrap: anywhere;
+}
+
+.campo-cep {
+    max-width: 18rem;
+}
+
+dd {
+    margin-bottom: 0.8rem;
+}
