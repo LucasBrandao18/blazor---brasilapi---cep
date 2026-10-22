@@ -114,5 +114,3 @@ wwwroot/                      HTML, Bootstrap e arquivos estáticos
 tests/                        Testes automatizados
 .gitignore                    Exclusão de arquivos gerados
 ```
-
-As páginas demonstrativas Counter e Weather foram removidas para manter o projeto concentrado na prática de CEP. O layout mantém a estrutura padrão do Blazor, com textos em português. O C# roda no navegador via WebAssembly; `dotnet run` inicia o servidor local que entrega os arquivos do aplicativo.
