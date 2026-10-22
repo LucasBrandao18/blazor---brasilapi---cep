@@ -1,7 +1,5 @@
 # BlazorWasmBrasilApiCep
 
-Prática em C# com **Blazor WebAssembly e .NET 10**, baseada no material `net_blazor_vscode.pdf`, do professor Daniel Henrique Matos de Paiva. A aplicação consulta um CEP na BrasilAPI e apresenta o endereço e os dados do IBGE retornados pelo serviço.
-
 ## O que o material solicita
 
 O PDF apresenta uma prática guiada, com estas etapas:
@@ -118,31 +116,3 @@ tests/                        Testes automatizados
 ```
 
 As páginas demonstrativas Counter e Weather foram removidas para manter o projeto concentrado na prática de CEP. O layout mantém a estrutura padrão do Blazor, com textos em português. O C# roda no navegador via WebAssembly; `dotnet run` inicia o servidor local que entrega os arquivos do aplicativo.
-
-## Compilação e testes
-
-Na raiz:
-
-```powershell
-dotnet build
-dotnet test "tests\BlazorWasmBrasilApiCep.Tests\BlazorWasmBrasilApiCep.Tests.csproj"
-```
-
-Há **18 testes automatizados com bUnit e xUnit**, abrangendo CEP com e sem hífen, preservação do zero inicial, entradas inválidas, desserialização dos dados do IBGE, campos opcionais ausentes, erros HTTP/rede, tempo limite, JSON inválido, nova tentativa e bloqueio de consultas duplicadas.
-
-Os testes usam respostas HTTP simuladas, sem depender da disponibilidade da BrasilAPI. A pasta `tests` é excluída dos arquivos do aplicativo pelo `.csproj` principal. A consulta real de `30130-000`, a validação de `123` e a resposta de CEP não encontrado para `00000000` também foram verificadas no navegador.
-
-Na verificação real, `30130-000` retornou Avenida Afonso Pena, Centro, Belo Horizonte/MG, serviço `open-cep`, cidade IBGE `3106200` e estado IBGE `31`. Esses valores são apenas o registro da verificação e podem mudar conforme o serviço.
-
-## Preparação para entrega manual
-
-O `.gitignore` inclui `bin/`, `obj/` e outros arquivos gerados. Essas pastas são recriadas pelo .NET ao compilar e executar; não precisam ser enviadas ao GitHub. Se quiser removê-las antes da entrega, encerre a aplicação e remova apenas essas pastas geradas, incluindo as do projeto de testes. Preserve o código-fonte e os arquivos `.csproj`.
-
-Nenhum repositório remoto foi criado e nenhum arquivo foi enviado ao GitHub ou ao Classroom.
-
-## Referências
-
-- Material fornecido: `net_blazor_vscode.pdf`.
-- [Documentação da BrasilAPI](https://brasilapi.com.br/docs#tag/CEP).
-- [Consulta utilizada na validação](https://brasilapi.com.br/api/cep/v1/30130000).
-- [Documentação do Blazor](https://learn.microsoft.com/aspnet/core/blazor/).
